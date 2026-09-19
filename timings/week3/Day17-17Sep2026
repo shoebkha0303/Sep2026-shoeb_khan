@@ -1,0 +1,30 @@
+Date: 17-Sep-2026
+Day: 17
+
+Today's Study:
+3 hr - Live lecture: Helm charts on EKS
+       - EKS cluster via Terraform (apply -auto-approve), values to change in code:
+         account ID, security group, VPC, subnet, IAM role
+       - Connect to cluster: aws configure, aws eks update-kubeconfig
+       - Why Helm: common YAML in one place, reuse across many services
+       - Chart structure: Chart.yaml, values.yaml, templates/, _helpers.tpl
+       - Built-in objects: .Values, .Chart, .Release
+       - Semantic versioning: MAJOR.MINOR.PATCH, chart version vs appVersion,
+         bump chart version on every values change
+       - Artifact Hub, Bitnami charts
+       - Commands: helm repo add / repo update / search repo --versions,
+         install, list (-A), pull --untar, upgrade --version, history,
+         rollback, uninstall, show, get values
+       - Revision history (default 10), status: deployed / superseded / failed,
+         ImagePullBackOff, old pod keeps running until new pod is ready
+       - Helm-created LoadBalancer is not removed by terraform destroy:
+         uninstall the Helm release first, check leftover LB and SG
+       - Interview tip: speak up, explain Helm commands confidently
+
+Total: 3 hrs
+
+Tomorrow's Plan:
+- ArgoCD (GitOps)
+- EKS cluster version upgrade (1.35 -> 1.36) demo
+- Revise Helm commands (install, upgrade, rollback, history)
+- Coding practice (L2 Day18)
