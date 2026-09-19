@@ -2,7 +2,24 @@ Date: 15-Sep-2026
 Day: 15
 
 Today's Study:
+2.5 hr - Live lecture: Kubernetes on AWS EKS using Terraform
+         - EKS cluster, node group and add-ons (EBS CSI, CoreDNS, metrics-server,
+           cluster-autoscaler, pod identity) created with Terraform
+         - Terraform depends_on, dependency cycle fix,
+           terraform refresh vs terraform import, terraform destroy -auto-approve
+         - Cluster Autoscaler: min / desired / max node size, pending pods
+         - Istio vs NGINX Ingress (Gateway, VirtualService)
+         - Deployment in namespace (Apache httpd), kubectl describe troubleshooting
+         - StatefulSet + headless Service, PV vs PVC, storageClassName gp2,
+           YAML indentation fix (expand command)
+         - NodePort Service, labels vs selectors mismatch, namespace mismatch
+         - DaemonSet (Fluent Bit), max pods per node issue
+         - Intro: Affinity / Anti-affinity
 
-Total: 
+Total: 2.5 hrs
 
 Tomorrow's Plan:
+- Rewatch today's lecture recording (lots of troubleshooting)
+- Affinity / Anti-affinity, Taints and Tolerations
+- Helm chart
+- Coding practice (L2 Day16)
