@@ -1,0 +1,31 @@
+Date: 19-Sep-2026
+Day: 19
+
+Today's Study:
+3.75 hr - Live lecture (evening): Terraform in depth
+          - Infrastructure as Code, declarative syntax, HCL (HashiCorp Configuration Language)
+          - State file: Terraform's record of what exists, updated only after
+            successful apply, partial apply records only created resources
+          - Plan output: create / change / destroy
+          - Providers: required_providers (source, version), provider block
+            (aws region, alicloud, vsphere, kubernetes)
+          - Version constraints: =, >=, >, <, ~> (pessimistic operator)
+          - Resource block: fixed resource type (aws_instance, aws_vpc, aws_subnet),
+            unique local name, referencing like aws_instance.web.id,
+            local name vs actual cloud resource name
+          - Modules: reusable config, Terraform Registry and provider docs
+          - Licensing: BSL, HCP Terraform free tier (500 resources), OpenTofu, fork vs clone
+          - State file is JSON, compared backup state with EKS resources,
+            VS Code hiding tfstate via .gitignore setting, state lock
+          - Demo on EC2 tags: manual change = Terraform drift, plan compares code
+            with real infra, apply reverts, terraform refresh updates state only
+          - terraform state list, terraform state show
+
+Total: 3.75 hrs
+
+Tomorrow's Plan:
+- Terraform remote state in S3 and state locking
+- Lifecycle arguments: create_before_destroy, prevent_destroy, ignore_changes, replace
+- terraform init, validate, fmt
+- Terraform interview questions
+- Coding practice (L2 Day20)

@@ -1,0 +1,26 @@
+Date: 16-Sep-2026
+Day: 16
+
+Today's Study:
+2.75 hr - Live lecture: Kubernetes scheduling and interview prep
+          - DaemonSet vs Deployment vs StatefulSet (one pod per node, random vs stable names)
+          - Connect to EKS: aws eks update-kubeconfig
+          - Node labels: kubectl label nodes, kubectl get nodes --show-labels
+          - Node Affinity: requiredDuringScheduling vs preferredDuringScheduling,
+            IgnoredDuringExecution
+          - Pod Affinity (fast, same node) vs Pod Anti-Affinity (HA, topologyKey hostname)
+          - Cluster Autoscaler scale-up on pending pod (node group max 2 -> 3)
+          - Taints and Tolerations: NoSchedule, PreferNoSchedule, NoExecute,
+            why pods do not run on master node
+          - Probes: startup, liveness, readiness
+          - Interview Qs: CrashLoopBackOff, OOMKilled, ImagePullBackOff,
+            troubleshooting with describe / logs / events, RBAC, IRSA vs Pod Identity
+          - Intro: why Helm charts
+
+Total: 2.75 hrs
+
+Tomorrow's Plan:
+- Helm chart (watch previous Helm class recording)
+- Revise Affinity, Taints and Tolerations, Probes
+- Write notes for interview Qs (CrashLoopBackOff, OOMKilled, ImagePullBackOff)
+- Coding practice (L2 Day17)
