@@ -1,0 +1,37 @@
+Date: 18-Sep-2026
+Day: 18
+
+Today's Study:
+3.5 hr - Live lecture: Jump server, ArgoCD (GitOps) and EKS upgrade
+         - Jump server (EC2 via Terraform) to access EKS, SSH key path,
+           security group update for my IP, scp to copy files to EC2
+         - Setup on EC2: kubectl, kubectx / kubens (git clone, chmod, soft links)
+         - aws configure on EC2: ~/.aws/config and credentials, profiles,
+           AWS_PROFILE, aws configure list, aws sts get-caller-identity
+         - EKS security group inbound rule for jump server SG
+         - Why ArgoCD: kubectl apply (single file) vs helm (single app)
+           vs ArgoCD (many apps), GitOps, dedicated ArgoCD cluster
+         - Install ArgoCD in argocd namespace, CRDs, RBAC, pending pods
+           fixed by increasing node group max, dex CrashLoopBackOff fix
+         - alias vs export (alias k=kubectl)
+         - Patch argocd-server service to NodePort (range 30000-32767),
+           reachable from any node IP
+         - Admin password from argocd-initial-admin-secret, base64 -d,
+           encoding vs encryption
+         - Application YAML: repoURL, targetRevision, path, valueFiles,
+           destination, syncPolicy (automated, prune, selfHeal),
+           CreateNamespace=true, namespace not found troubleshooting
+         - Self-heal demo: deleted deployment recreated by ArgoCD
+         - Health status (Healthy, Degraded, Progressing, Missing, Unknown),
+           sync status (Synced, OutOfSync), manual sync with prune / force
+         - EKS upgrade 1.35 -> 1.36: one minor version at a time,
+           add-ons compatibility first, control plane, then node group,
+           new nodes, cordon and drain old nodes (kubectl get nodes -w)
+
+Total: 3.5 hrs
+
+Tomorrow's Plan:
+- Create own Git repo with ArgoCD app files and deploy Nginx / Grafana via ArgoCD
+- Revise EKS upgrade order (add-ons, control plane, node group)
+- Revise ArgoCD health and sync status
+- Coding practice (L2 Day19)
