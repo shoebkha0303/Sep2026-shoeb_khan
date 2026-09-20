@@ -1,0 +1,51 @@
+Date: 20-Sep-2026
+Day: 20
+
+Today's Study:
+4.25 hr - Live lecture (morning): Terraform state lock, S3 backend and interview questions
+          - Git + Terraform flow: clone/pull -> new branch -> plan -> apply ->
+            push -> PR -> merge -> pull; why git pull before every change
+          - Drift = manual change on real infra; stale code shows reverse change
+          - State lock: two users hitting at once cause conflict, so Terraform
+            locks state; lock applies on both plan and apply
+          - Lock info: ID, path, who, created time (UTC); stale lock stays forever
+            if process was killed (Ctrl+Z) instead of graceful exit (Ctrl+C)
+          - terraform force-unlock <LOCK_ID>, or delete the lock entry directly;
+            -lock=false bypasses the lock (not recommended)
+          - S3 backend: bucket, key (folder path inside bucket), region
+          - DynamoDB table for locking: partition key must be LockID (capital L,
+            capital ID) else "missing the key LockID" error
+          - S3 native locking: use_lockfile = true, creates a .tflock object next
+            to the state file, saves DynamoDB cost
+          - terraform init -migrate-state (local to remote) vs -reconfigure
+            (any backend change)
+          - init downloads provider dependencies, creates .terraform/ and
+            .terraform.lock.hcl (provider version lock, not Terraform version)
+          - Providers are the "dictionary"; resource block needs its provider
+          - terraform fmt (indentation), validate (syntax/arguments)
+          - Flow: init -> fmt -> validate -> plan -> apply (-> destroy)
+          - State file deleted: if versioning enabled, delete the delete-marker;
+            else re-create with terraform import (resource block first, then
+            terraform import <resource>.<name> <id>); one resource at a time
+          - terraform state list, terraform state show
+          - Modules: root, child, remote (git source with ref branch/tag)
+          - Workspaces vs Terragrunt (Terragrunt is the better answer)
+          - Provisioners: local-exec, remote-exec, file
+          - null_resource with triggers and depends_on
+          - lifecycle: create_before_destroy, prevent_destroy, ignore_changes,
+            replace_triggered_by
+          - terraform taint / untaint (new way: apply -replace=<resource>)
+          - count vs for_each; each.key / each.value
+          - Sensitive data: sensitive = true, Vault, AWS Parameter Store + data block
+          - terraform graph (resource dependency graph)
+          - Interview tips: interviews check whether you are genuine, not just
+            knowledge; give answers AI cannot give; teach your work to others so
+            you learn new skills
+
+Total: 4.25 hrs
+
+Tomorrow's Plan:
+- Revision: Terraform state lock, import, lifecycle, count vs for_each
+- Kubernetes revision
+- Coding practice
+- Next topic: Ansible
