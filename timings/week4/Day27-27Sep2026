@@ -1,0 +1,48 @@
+Date: 27-Sep-2026
+Day: 27
+
+Today's Study:
+4.5 hr - Live lecture: Kafka (concepts, hands-on 3-node cluster, interview questions)
+         - Recap: monitoring (what happened) vs logging (why it happened),
+           Kafka keeps real-time messages safe when consumer or network is down
+         - Architecture: producers, brokers, topics, partitions,
+           consumers, consumer groups (courier / water tank analogy)
+         - Replication across brokers, leader handles read/write,
+           followers replicate, in-sync replicas (ISR), fault tolerance
+         - Ordering guaranteed only within a partition, not across partitions
+         - Offsets and consumer lag (produced minus consumed), lag alerts
+         - Encryption: in transit needs TLS/SSL (not default),
+           at rest not built in (OS / disk level)
+         - ZooKeeper vs KRaft (KRaft in newer versions, lab used Kafka 3.9.1)
+         - Kafka Connect (source vs sink connectors), Kafka Streams,
+           MirrorMaker 2 for cross-cluster replication,
+           active-active vs active-passive DR
+         - Odd number quorum (1 / 3 / 5); Kubernetes: multiple master nodes
+           in one cluster, EKS manages control plane, we manage worker nodes
+         - Hands-on Terraform: 3 Kafka nodes, own security group with ingress
+           rules (22, 8080, 9092, 9093), data blocks for default VPC / subnet,
+           count vs for_each, local_file generating Ansible inventory
+           (dynamic inventory), terraform output -raw kafka_ui_url
+         - Troubleshooting: terraform.tfvars hidden by .gitignore, AWS key pair
+           name vs local private key file (key content is what matters)
+         - Hands-on Ansible: group_vars/all.yml, templates,
+           when: inventory_hostname == groups['kafka'][0] (Docker + Kafka UI
+           only on first node), ad-hoc: ansible kafka -b -m command
+           -a "systemctl is-active kafka"
+         - Kafka UI (8080): brokers, topics, partitions, replicas, messages,
+           consumer groups, lag; created topics (pathnex 4 partitions RF 3,
+           orders 6 partitions), ran 6 producers and 3 consumer groups
+         - Topic settings: cleanup policy (delete / compact), retention,
+           max message bytes
+         - Interview Qs: rebalancing, consumers more than partitions stay idle,
+           auto vs manual offset commit, listeners vs advertised listeners,
+           bootstrap servers, SASL / ACLs, fixing consumer lag
+         - terraform destroy at the end
+
+Total: 4.5 hrs
+
+Tomorrow's Plan:
+- Rebuild the Kafka lab in own AWS account (change key name only)
+- Revise Kafka interview questions (partitions, replication, lag, KRaft)
+- Revise Kubernetes control plane vs worker nodes, odd quorum
+- Coding practice (L2 Day28)
