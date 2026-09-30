@@ -1,0 +1,6 @@
+# Chart.yaml
+apiVersion: v2
+name: pathnex
+description: Pathnex Devops final project app
+version: 0.1.0
+appVersion: "v1"
