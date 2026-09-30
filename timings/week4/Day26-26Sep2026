@@ -1,0 +1,40 @@
+Date: 26-Sep-2026
+Day: 26
+
+Today's Study:
+3.5 hr - Live lecture: Logging, tracing and ELK stack (hands-on with Terraform + Ansible)
+         - Monitoring vs logging: monitoring shows that an incident happened,
+           logs show why it happened
+         - Metrics vs logs vs traces (interview question)
+         - Trace ID and span: one ID follows a request across services
+           (API gateway -> order -> payment -> bank), span = one operation
+         - Tracing tools: OpenTelemetry, Jaeger, Zipkin, Tempo,
+           Datadog APM, AWS X-Ray
+         - Trace ID works at application layer (L7), traceroute works at
+           network layer (L3), OSI layers revision
+         - Real world monitoring: failed pod count, IP exhaustion in subnet,
+           EBS usage, warning vs critical thresholds
+         - ELK flow: Filebeat -> Logstash -> Elasticsearch -> Kibana
+         - Logstash pipeline: input (beats 5044), filter (grok, date, geoip),
+           output (Elasticsearch 9200), log parsing, log levels
+         - Elasticsearch: indices, JSON documents, shards and replicas
+         - Index lifecycle policy: hot / warm / cold / delete phases,
+           rollover by age or size, priority
+         - Hands-on: Terraform created ELK server + 2 clients, Ansible roles
+           (elasticsearch, logstash, kibana, filebeat), yum repo + GPG key,
+           checked services with systemctl status, top, free -h
+         - Troubleshooting: private IP not reachable from local machine
+           (used public IP), ansible-playbook --limit client2
+         - Security group ports: 5601 (Kibana), 9200 (Elasticsearch),
+           5044 (Logstash); logs stopped when ports were closed
+         - Kibana: data view pathnex-logs*, Discover, dashboards with Lens
+           (bar, metric, formula e.g. login success rate), duplicate panel,
+           index management, alerting
+
+Total: 3.5 hrs
+
+Tomorrow's Plan:
+- Build own Kibana dashboard on the shared ELK server
+- Revise ELK flow and ports (5044, 9200, 5601), metrics vs logs vs traces
+- Watch last month's ELK video (shards, replicas, ILM)
+- Coding practice (L2 Day27)

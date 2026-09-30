@@ -1,0 +1,49 @@
+Date: 22-Sep-2026
+Day: 22
+
+Today's Study:
+3.5 hr - Live lecture: Ansible basics, Terraform revision and live troubleshooting
+         - Ansible: open source configuration management, app deployment,
+           task automation (same config copied to many servers, like phone clone)
+         - Terraform vs Ansible: Terraform for infra, Ansible for config;
+           each can do the other's job (user_data / cloud modules) but less efficiently
+         - Agentless: only SSH (port 22) needed on managed nodes,
+           custom SSH port must be set in config; Python required on control node
+         - Windows: WinRM 5985 (HTTP) / 5986 (HTTPS, SSL cert),
+           RDP (3389, GUI) vs WinRM (CLI)
+         - Push based (Ansible) vs pull based (Puppet, Chef: agent + master,
+           periodic sync, why deleted config comes back)
+         - Ansible vs Chef vs Puppet: YAML playbook vs Ruby DSL recipes
+           vs Puppet DSL manifests, agent, learning curve; idempotency
+         - Components: playbook (tasks), inventory (server list), modules
+           (yum, copy, service, ansible.builtin.command), roles (big task split
+           into reusable units)
+         - Control node vs managed nodes, playbook starts with ---,
+           inventory groups (dev / prod / webservers), hosts: all vs group
+         - ansible-playbook -i <inventory> <playbook>.yml
+         - become: yes (sudo), gather_facts (OS based conditions, slower)
+         - Static vs dynamic inventory, Ansible Vault (ansible-vault create,
+           --ask-vault-pass), -u user --ask-pass
+         - Python virtual environment: python3 -m venv, source bin/activate,
+           why use it on a shared jump server
+         - Terraform revision: data blocks (default VPC, subnet, SG),
+           for_each with locals, try() / coalesce(), locals per environment,
+           terraform.tfvars overrides variables.tf defaults (interview Q),
+           invalid instance type falls back to default
+         - Live troubleshooting: SSH timeout (security group), host key
+           verification failed (StrictHostKeyChecking=no in
+           ansible_ssh_common_args), private key path, wrong user (ec2-user),
+           Python version mismatch (new Ansible vs Python 3.7 on EC2) fixed with
+           venv + older Ansible, ansible ping, -vvv verbose
+         - Deployed Apache (8080) + Nginx (80) on 3 EC2 via Ansible,
+           opened ports in SG; full destroy -> apply -> playbook in ~2 min
+         - Interview tips: speak confidently, give mock interviews early
+
+Total: 3.5 hrs
+
+Tomorrow's Plan:
+- Revise Ansible components (playbook, inventory, modules, roles)
+- Write own playbook with inventory groups and gather_facts conditions
+- Ansible Vault and Python venv practice
+- Revise tfvars vs variables.tf precedence
+- Coding practice (L2 Day23)

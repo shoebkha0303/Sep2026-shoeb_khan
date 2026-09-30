@@ -1,0 +1,44 @@
+Date: 25-Sep-2026
+Day: 25
+
+Today's Study:
+2.75 hr - Live lecture: Monitoring with Datadog on EKS + Terraform Datadog provider
+          - Monitoring and observability: car dashboard analogy, agents
+            collect data and send it to a central dashboard
+          - Datadog: cloud based monitoring SaaS, 14-day free trial
+          - EKS cluster (1.36) created with Terraform, node group desired size
+          - Datadog Operator via Helm: helm repo add datadog, install in
+            datadog namespace (--create-namespace), Artifact Hub for charts
+          - kubectl create secret generic datadog-secret with API key,
+            API key validated by Datadog before data is accepted
+          - Enabling APM / logs / RUM / autoscaling changes the generated YAML
+          - Secret type Opaque, base64 is encoding not encryption,
+            kubectl get secret -o yaml, base64 -d
+          - aws eks update-kubeconfig, kubens
+          - Troubleshooting: pods Pending (not enough node capacity, removed
+            unused DaemonSets), cluster-agent CrashLoopBackOff found via
+            kubectl logs (cluster name must be lowercase), describe vs logs,
+            old pod keeps running until new pod is ready
+          - Node agent = DaemonSet (one pod per node), cluster-agent = Deployment
+          - Datadog UI: Kubernetes overview, prebuilt monitors, custom dashboard
+            widgets (query value, timeseries, toplist, table, heatmap, avg by)
+          - Terraform Datadog provider: API key and app key stored in AWS SSM
+            Parameter Store (SecureString), read with data blocks,
+            datadog_dashboard resource, variables with default
+          - Drift from manual UI change, terraform refresh, dashboard version
+            history, lifecycle ignore_changes (takes a list, not true)
+          - terraform import datadog_monitor (remove id attribute),
+            terraform state list / show, destroy and re-apply recreates all
+          - Monitor message template and runbook link
+          - Integrations: Slack, MS Teams, AWS (CloudFormation), PagerDuty
+          - Why keep Prometheus / Grafana separate, Datadog has its own UI,
+            no-data alerts
+          - terraform destroy of EKS cluster at the end
+
+Total: 2.75 hrs
+
+Tomorrow's Plan:
+- Rewatch last month's Prometheus / Grafana class and compare with Datadog
+- Practice Datadog dashboard and monitor with Terraform (import, ignore_changes)
+- Revise Kubernetes secrets, DaemonSet vs Deployment, logs vs describe
+- Coding practice (L2 Day26)

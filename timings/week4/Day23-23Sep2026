@@ -1,0 +1,43 @@
+Date: 23-Sep-2026
+Day: 23
+
+Today's Study:
+3.75 hr - Live lecture: CI/CD, Jenkins, GitLab CI, GitHub Actions + hands-on Jenkins setup
+          - CI vs Continuous Delivery vs Continuous Deployment (delivery waits
+            for manual approval, deployment goes to prod automatically)
+          - Pipeline stages are not fixed; interview answer: explain one
+            recent pipeline instead of just "build, test, deploy"
+          - Terraform pipeline stages: init, fmt, validate, plan, apply,
+            destroy (optional), workspace per env (QA / UAT / stage / prod)
+          - Jenkinsfile: pipeline, agent any, stages, stage, steps, sh,
+            multi-line ''' script; agent label vs agent none + choice parameters
+          - Jenkins: port 8080, Groovy, declarative (pipeline) vs scripted (node)
+          - GitLab CI: .gitlab-ci.yml, stages, jobs, image, script,
+            runners (shared vs self-hosted)
+          - GitHub Actions: .github/workflows/*.yml, on push / pull_request,
+            runs-on ubuntu-latest, jobs, steps
+          - Guest demo: Jenkins on Kubernetes with dynamic pod agents
+          - Terraform revision: tfvars overrides variables.tf defaults,
+            global / region / env folder structure, local backend,
+            deleting .terraform, risk of remote modules
+          - Hands-on: Terraform created jump server + Jenkins server,
+            scp key and playbook to jump server, installed Ansible,
+            playbook installed Java (Corretto 21), Maven, Docker, Jenkins
+          - Security group: private IP stays internal, public IP goes via
+            internet so source must be allowed in SG
+          - Jenkins UI: admin login, pipeline job, Stage View plugin,
+            build with parameters (env choice), console output, jar artifact,
+            Spring PetClinic app deployed on port 80, GitHub plugin / webhook,
+            poll SCM, parallel stages
+          - Troubleshooting failed pipeline: mvn not found (PATH env),
+            Docker repo name must be lowercase, build logs in CLI under
+            /var/lib/jenkins/jobs/<job>/builds/<n>/log
+          - terraform destroy at the end to save cost
+
+Total: 3.75 hrs
+
+Tomorrow's Plan:
+- Write own Jenkinsfile (declarative) and one scripted pipeline
+- Try same pipeline in GitHub Actions
+- Revise CI vs CD, shared vs self-hosted runners, agent labels
+- Coding practice (L2 Day24)
